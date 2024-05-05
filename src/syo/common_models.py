@@ -26,6 +26,14 @@ class Character(pydantic.BaseModel):
         default=[],
         description="Important events that this character have experienced in the past.",
     )
+    allies: list[str] = pydantic.Field(
+        default=[],
+        description="Other characters this character have a positive relationship with.",
+    )
+    enemies: list[str] = pydantic.Field(
+        default=[],
+        description="Other characters this character have a negative relationship with.",
+    )
     notable_effects: list[str] = pydantic.Field(
         default=[],
         description="Important effects that affect this character, which they may or may not have control over.",
@@ -76,6 +84,13 @@ class Location(pydantic.BaseModel):
     origin: str = pydantic.Field(
         default="Unknown", description="How this location was found or created."
     )
+    parent_location: str = pydantic.Field(
+        default="Unknown", description="Where this location is contained in."
+    )
+    nearby_locations: list[str] = pydantic.Field(
+        default=[],
+        description="Other locations close to this.",
+    )
     notable_characters: list[str] = pydantic.Field(
         default=[],
         description="Important characters that are currently in this location.",
@@ -112,8 +127,15 @@ class Event(pydantic.BaseModel):
         default=[],
         description="Important ways in which this Event is influencing the world around it.",
     )
-    origin: str = pydantic.Field(
-        default="Unknown", description="What caused this Event to happen."
+    start_reason: str = pydantic.Field(
+        default="Unknown", description="What caused this Event to start."
+    )
+    end_reason: str | None = pydantic.Field(
+        default=None, description="What caused this Event to end, if it is over."
+    )
+    outcomes: list[str] = pydantic.Field(
+        default=[],
+        description="How have things changed because of this Event.",
     )
     notable_characters: list[str] = pydantic.Field(
         default=[],
