@@ -1,2 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "novel_summarizer"
+version = "0.0.1"
+authors = [
+  { name="etrotta", email="etrotta@duck.com" },
+]
+description = "Automatically summarize Light Novels"
+requires-python = ">=3.12"
+dependencies = ['google-generativeai']
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Private :: Do Not Upload"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/etrotta/novel_summarizer"
+
 [tool.ruff]
 line-length = 100
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]

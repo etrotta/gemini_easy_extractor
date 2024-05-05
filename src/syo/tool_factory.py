@@ -39,11 +39,11 @@ def format_parameter(field: FieldInfo) -> glm.Schema:
 
 
 def novel_model[ModelType: typing.Type[pydantic.BaseModel]](model: ModelType) -> ModelType:
-    """Register the model and declare glm Tool Functions to manage instances of it."""
+    """Register the Model and declare Tool functions to manage instances of it."""
     snake_case_name = '_'.join(re.findall(r"([A-Z][a-z0-9\_]+)", model.__name__)).lower()
 
     registered_models[model.__name__] = model
-    registered_models[snake_case_name] = model
+    # registered_models[snake_case_name] = model
 
     parameters: dict[str, glm.Schema] = {}
     required: list[str] = []
@@ -59,7 +59,7 @@ def novel_model[ModelType: typing.Type[pydantic.BaseModel]](model: ModelType) ->
         required=required,
     )
     base_functions = [
-        ("register", "Register a new "),
+        ("register", "Register a new"),
         ("update", "Add new information about an existing"),
     ]
     functions = [
@@ -90,47 +90,3 @@ def collect_tools() -> glm.Tool:
 
 def get_model_from_function_name(function_name: str) -> typing.Type[pydantic.BaseModel]:
     return _function_owners[function_name]
-
-@novel_model
-class NovelCharacter(pydantic.BaseModel):
-    """important Character present in the novel."""
-    name: str = pydantic.Field(default="Unknown", description="This character's real name.")
-    aliases: list[str] = pydantic.Field(
-        default=[],
-        description="Alternative names this character is called by, including nicknames and titles.",
-    )
-    description: str = pydantic.Field(
-        description="A short description including the most important details about this character."
-    )
-    notable_events: list[str] = pydantic.Field(
-        default=[],
-        description="Important events this character has experienced.",
-    )
-    notable_skills: list[str] = pydantic.Field(
-        default=[], description="Important abilities this character possess."
-    )
-    origin: str = pydantic.Field(default="Unknown", description="Where this character was born.")
-    notable_past_locations: list[str] = pydantic.Field(
-        default=[],
-        description="Important locations that make up part of this character's background.",
-    )
-    age: int | None = pydantic.Field(default=None, description="This character's real age in years.")
-
-
-
-# calculator = glm.Tool(
-#     function_declarations=[
-#       glm.FunctionDeclaration(
-#         name='multiply',
-#         description="Returns the product of two numbers.",
-#         parameters=glm.Schema(
-#             type=glm.Type.OBJECT,
-#             properties={
-#                 'a':glm.Schema(type=glm.Type.NUMBER),
-#                 'b':glm.Schema(type=glm.Type.NUMBER)
-#             },
-#             required=['a','b']
-#         )
-#       )
-#     ])
-
