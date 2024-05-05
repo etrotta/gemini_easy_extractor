@@ -1,3 +1,4 @@
+import re
 import typing
 import google.ai.generativelanguage as glm
 import pydantic
@@ -39,7 +40,11 @@ def format_parameter(field: FieldInfo) -> glm.Schema:
 
 def novel_model[ModelType: typing.Type[pydantic.BaseModel]](model: ModelType) -> ModelType:
     """Register the model and declare glm Tool Functions to manage instances of it."""
+    snake_case_name = '_'.join(re.findall(r"([A-Z][a-z0-9\_]+)", model.__name__)).lower()
+
     registered_models[model.__name__] = model
+    registered_models[snake_case_name] = model
+
     parameters: dict[str, glm.Schema] = {}
     required: list[str] = []
     for key, field in model.model_fields.items():
@@ -53,13 +58,21 @@ def novel_model[ModelType: typing.Type[pydantic.BaseModel]](model: ModelType) ->
         properties=parameters,
         required=required,
     )
-    register_function = glm.FunctionDeclaration(
-        name=f"Register{model.__name__}",
-        description=f"Register {model.__doc__}",
-        parameters=model_schema,
-    )
-    declared_functions.append(register_function)
-    _function_owners[register_function.name] = model
+    base_functions = [
+        ("register", "Register a new "),
+        ("update", "Add new information about an existing"),
+    ]
+    functions = [
+        glm.FunctionDeclaration(
+            name=f"{function_prefix}_{snake_case_name}",
+            description=f"{function_description} {model.__doc__}",
+            parameters=model_schema,
+        )
+        for function_prefix, function_description in base_functions
+    ]
+    declared_functions.extend(functions)
+    for function in functions:
+        _function_owners[function.name] = model
     return model
 
 def clear_models_and_functions() -> None:
@@ -80,7 +93,7 @@ def get_model_from_function_name(function_name: str) -> typing.Type[pydantic.Bas
 
 @novel_model
 class NovelCharacter(pydantic.BaseModel):
-    """An important Character present in the novel."""
+    """important Character present in the novel."""
     name: str = pydantic.Field(default="Unknown", description="This character's real name.")
     aliases: list[str] = pydantic.Field(
         default=[],
