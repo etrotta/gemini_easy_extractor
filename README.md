@@ -2,7 +2,9 @@
 
 Automatically create a structured summary containing relevant information about novels, books or any form of text.
 
-**Disclaimer:** The output quality is not anywhere near usable. Do not use it for anything beyond experimentation/research.
+You can access it on Google Colab, with a more user-friendly interface, via https://gist.github.com/etrotta/566da8c1e0e7a4110d7fede740644539
+
+**Disclaimer:** The output quality is far from perfect. Do not use it for anything beyond experimentation/research.
 
 There are some ways in which I could potentially improve it such as
 - splitting the chapters into smaller segments
@@ -15,6 +17,8 @@ But I'm not sure how much I really care about it, so feel free to explore that i
 
 # How it works
 
+If you are not a technical person, use https://gist.github.com/etrotta/566da8c1e0e7a4110d7fede740644539 instead of this repository
+
 First, you have to
 - download the data and pre-process it (a folder containing `.txt` files containing only the relevant text, with little markdown and be cautious about prompt injection if try to run it on user input, for things you really shouldn't be using this for in first place.)
 - pre-process it, define which models you want to use and register them
@@ -22,7 +26,3 @@ First, you have to
 - potentially adjust the prompt template
 
 Then just run it for all files in the folder
-
-
-It is not really meant to be user friendly at its current state, but should be usable if you have some experience programming. Not sure why you would want to use it that hard though.
-
