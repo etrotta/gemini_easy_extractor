@@ -26,7 +26,7 @@ Some details are different between the English version, the Portuguese verion an
 It is not available on pypi, but this repository can be installed as a python package:
 
 ```
-pip install git+https://github.com/etrotta/gemini_easy_extractor/tree/main/gemini_easy_extractor
+pip install git+https://github.com/etrotta/gemini_easy_extractor/#subdirectory=gemini_easy_extractor
 ```
 
 If you want to use it like this, please refer to the [examples folder](examples).

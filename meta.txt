@@ -14,3 +14,4 @@ The outputs are not perfect. For example:
 If I ran it multiple times and cherry-picked the best results for each category, I could get results good enough to pass for human quality, but
 these results are intentionally realistic to show that despite it working to some extent, you should not rely on it.
 
+Also remember: The output may change every time you run it, even with the exact same inputs, configurations etc.
