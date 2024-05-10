@@ -1,9 +1,11 @@
 # Gemini Easy Extractor
 
+> [Para ler a versão em Português, clique aqui](README.pt-BR.md)
+
 Automatically create a structured JSON summary containing relevant information about novels, books, documents or any form of text.
 
 ## Warnings
-Remember to never send private or classified information to the free version of the Gemini API, the data may be used to train Google's LLM models, which can cause for the model to memorize it and reproduce it to other users.
+Remember to never send private or classified information to the free version of the Gemini API, [the data may be used to train Google's AI models](https://ai.google.dev/gemini-api/terms#data-use-unpaid), which can cause for the model to memorize it and reproduce it to other users.
 
 The output is not anywhere near realiable enough to blindly trust it. Do not use it for anything beyond experimentation/research, and review it before using for anything important.
 
@@ -29,7 +31,7 @@ It is not available on pypi, but this repository can be installed as a python pa
 pip install git+https://github.com/etrotta/gemini_easy_extractor/#subdirectory=gemini_easy_extractor
 ```
 
-If you want to use it like this, please refer to the [examples folder](examples).
+If you want to use it like this, please refer to the [examples folder](examples), and see [meta.txt](meta.txt) for some notes about the example inputs and outputs.
 
 It injects itself under the "google" package namespace, creating a new "third_party_gemini_extensions" subpackage, so you have to import it as:
 
