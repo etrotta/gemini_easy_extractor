@@ -1,4 +1,16 @@
-Novel being used for testing
+Japanese Light Novel being used for testing
 
 URL: https://ncode.syosetu.com/n3702ir/ (呪われ料理人は迷宮でモフミミ少女たちを育てます)
 Author: https://mypage.syosetu.com/674440/ (棚架ユウ)
+
+The other two examples were created by LLMs
+
+
+The outputs are not perfect. For example:
+- the João e Maria output did not include Maria as a Character
+- the roleplay output hallucinates a location (Study)
+- the Japanese output has different languages for different tags, and the "location" "モフミミキングダム" is a joke objective, yet the model says as if they met there
+
+If I ran it multiple times and cherry-picked the best results for each category, I could get results good enough to pass for human quality, but
+these results are intentionally realistic to show that despite it working to some extent, you should not rely on it.
+

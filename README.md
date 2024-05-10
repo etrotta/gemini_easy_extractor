@@ -1,28 +1,44 @@
-# Novel Summarizer
+# Gemini Easy Extractor
 
-Automatically create a structured summary containing relevant information about novels, books or any form of text.
+Automatically create a structured JSON summary containing relevant information about novels, books, documents or any form of text.
 
-**Disclaimer:** The output quality is not anywhere near usable. Do not use it for anything beyond experimentation/research.
+## Warnings
+Remember to never send private or classified information to the free version of the Gemini API, the data may be used to train Google's LLM models, which can cause for the model to memorize it and reproduce it to other users.
 
-There are some ways in which I could potentially improve it such as
-- splitting the chapters into smaller segments
-- adding context about the data registered so far
-- - throwing a human in the loop to correct mistakes before they pile up if I add the above
-- using a better model
-- use the same language for everything from the data models, their fields, their description to the prompt to the input text
+The output is not anywhere near realiable enough to blindly trust it. Do not use it for anything beyond experimentation/research, and review it before using for anything important.
 
-But I'm not sure how much I really care about it, so feel free to explore that if you're feeling like it
+From my testing, the names and descriptions of your Data Models and Function Template must be writen in English for Gemini to work properly, but you can use other languages for the Prompt itself and for Model Field descriptions.
 
-# How it works
+This is not an official Google project, nor is it endorsed by Google
 
-First, you have to
-- download the data and pre-process it (a folder containing `.txt` files containing only the relevant text, with little markdown and be cautious about prompt injection if try to run it on user input, for things you really shouldn't be using this for in first place.)
-- pre-process it, define which models you want to use and register them
-- create a Google Gemini API Key and set it as the `GOOGLE_API_KEY` environment variable
-- potentially adjust the prompt template
+# How to use it
 
-Then just run it for all files in the folder
+## User Friendly way
 
+I recommend using the Google Colab version if you need of handholding.
+- English version: https://gist.github.com/etrotta/566da8c1e0e7a4110d7fede740644539
+- Português Brasileiro: https://gist.github.com/etrotta/7c87f9ebeab0554769a518ef6d0bcfd2
 
-It is not really meant to be user friendly at its current state, but should be usable if you have some experience programming. Not sure why you would want to use it that hard though.
+Some details are different between the English version, the Portuguese verion and the Programmer's Way. These are in part to account for the target audience needs and level of technical profeciency, in part because of small improvements I may have made while working on them that I haven't ported back to the others yet. 
 
+## Programmer's Way
+
+It is not available on pypi, but this repository can be installed as a python package:
+
+```
+pip install git+https://github.com/etrotta/gemini_easy_extractor/tree/main/gemini_easy_extractor
+```
+
+If you want to use it like this, please refer to the [examples folder](examples).
+
+It injects itself under the "google" package namespace, creating a new "third_party_gemini_extensions" subpackage, so you have to import it as:
+
+```py
+from google.third_party_gemini_extensions import gemini_easy_extractor
+# or
+from google.third_party_gemini_extensions.gemini_easy_extractor import (
+    FunctionGroup,
+    create_gemini_model,
+    extract_document_information,
+)
+```

@@ -1,0 +1,66 @@
+{
+    "Character": [
+        {
+            "name": "Character",
+            "description": "A newly summoned mage into a new world with a fascination for arcane arts.",
+            "skills": [
+                "Mind Whisper",
+                "Mirror Maze",
+                "Veil of Mist"
+            ],
+            "origin": null,
+            "current_location": null,
+            "age": null
+        }
+    ],
+    "Location": [
+        {
+            "name": "New World",
+            "description": "A mystical world filled with magic and wonder.",
+            "notable_effects": [],
+            "origin": null,
+            "parent_location": null
+        },
+        {
+            "name": "Scholar's Study",
+            "description": "A place of learning and knowledge.",
+            "notable_effects": [],
+            "origin": null,
+            "parent_location": null
+        },
+        {
+            "name": "Veiled Realm",
+            "description": "A realm of swirling mist.",
+            "notable_effects": [],
+            "origin": null,
+            "parent_location": null
+        }
+    ],
+    "Event": [
+        {
+            "name": "New World Discovery",
+            "description": "Character discovers they have been summoned to a new world and begins to imagine their character in detail.",
+            "effects": []
+        },
+        {
+            "name": "Character Creation",
+            "description": "Character chooses their class (Mage), race (Elf), profession (Scholar), appearance, and other defining attributes.",
+            "effects": []
+        },
+        {
+            "name": "School of Magic Selection",
+            "description": "Character selects their school of magic (Enchantment) and elemental affinities (Water and Air).",
+            "effects": []
+        },
+        {
+            "name": "Most Used Spells Chosen",
+            "description": "Character identifies their most used spells (Mind Whisper, Mirror Maze, Veil of Mist).",
+            "effects": []
+        },
+        {
+            "name": "Visual Representation Defined",
+            "description": "Character describes their visual representation, including their appearance, surroundings, and the runes on their cloak.",
+            "effects": []
+        }
+    ]
+}

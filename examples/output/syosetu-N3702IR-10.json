@@ -1,0 +1,50 @@
+{
+    "Character": [
+        {
+            "name": "トール",
+            "description": "主人公。元地球人。奴隷商人に捕らえられていたシロとクロを助ける。",
+            "skills": [],
+            "origin": null,
+            "current_location": null,
+            "age": null
+        },
+        {
+            "name": "シロ",
+            "description": "金髪白肌の猫獣人の少女。4歳。活発で好奇心旺盛。",
+            "skills": [
+                "猫目",
+                "しなやかな尻尾"
+            ],
+            "origin": "不明",
+            "current_location": null,
+            "age": 4
+        },
+        {
+            "name": "クロ",
+            "description": "銀髪褐色の犬獣人の少女。4歳。眠たがりでマイペース。",
+            "skills": [
+                "三角の耳",
+                "フサッとした尻尾"
+            ],
+            "origin": "不明",
+            "current_location": null,
+            "age": 4
+        }
+    ],
+    "Location": [
+        {
+            "name": "モフミミキングダム",
+            "description": "トールがシロとクロを保護した場所。",
+            "notable_effects": [],
+            "origin": null,
+            "parent_location": null
+        }
+    ],
+    "Event": [
+        {
+            "name": "Meeting Shiro and Kuro",
+            "description": "The protagonist meets two young beastkin girls, Shiro and Kuro, who have been captured by slavers. He rescues them and gives them names.",
+            "effects": []
+        }
+    ]
+}

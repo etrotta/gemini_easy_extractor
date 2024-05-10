@@ -3,14 +3,14 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "novel_summarizer"
+name = "gemini_easy_extractor"
 version = "0.0.1"
 authors = [
   { name="etrotta", email="etrotta@duck.com" },
 ]
-description = "Automatically summarize Light Novels"
+description = "An extension for google-generativeai which adds a method to easily summarize files"
 requires-python = ">=3.12"
-dependencies = ['google-generativeai']
+dependencies = ['google-generativeai', 'pydantic']
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
@@ -18,10 +18,10 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/etrotta/novel_summarizer"
+"Homepage" = "https://github.com/etrotta/gemini_easy_extractor"
 
 [tool.ruff]
 line-length = 100
 
 [tool.hatch.build.targets.wheel]
-packages = ["src"]
+packages = ["src/google"]

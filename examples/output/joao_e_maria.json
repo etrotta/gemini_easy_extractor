@@ -1,0 +1,65 @@
+{
+    "Character": [
+        {
+            "name": "João",
+            "description": "João is a brave and adventurous boy who loves to explore the forest and carve wooden figures.",
+            "skills": [
+                "exploring",
+                "wood carving"
+            ],
+            "origin": null,
+            "current_location": null,
+            "age": 12
+        }
+    ],
+    "Location": [
+        {
+            "name": "Vilage",
+            "description": "A quiet village nestled among verdant mountains, where João and Maria, two inseparable siblings, lived.",
+            "notable_effects": [],
+            "origin": null,
+            "parent_location": null
+        },
+        {
+            "name": "Floresta",
+            "description": "The vast and mysterious forest surrounding the village, where João explored nature's secrets.",
+            "notable_effects": [],
+            "origin": null,
+            "parent_location": null
+        },
+        {
+            "name": "Floresta Mágica",
+            "description": "A hidden part of the Floresta where João and Maria found the ancient book and embarked on their imaginary adventures.",
+            "notable_effects": [],
+            "origin": null,
+            "parent_location": null
+        },
+        {
+            "name": "Casa",
+            "description": "The humble abode where João and Maria lived.",
+            "notable_effects": [],
+            "origin": null,
+            "parent_location": null
+        }
+    ],
+    "Event": [
+        {
+            "name": "The discovery of the old book",
+            "description": "João and Maria found an old book in the forest, which inspired them to create their own adventures.",
+            "effects": [
+                "João and Maria started creating their own adventures.",
+                "Their adventures became legendary in the village."
+            ]
+        },
+        {
+            "name": "João and Maria started creating their own adventures",
+            "description": "Inspired by the stories in the old book, João and Maria started creating their own adventures.",
+            "effects": []
+        },
+        {
+            "name": "João and Maria’s adventures became legendary in the village",
+            "description": "The adventures of João and Maria became legendary in the village, inspiring other children to use their imagination and explore the world with creativity and courage.",
+            "effects": []
+        }
+    ]
+}
